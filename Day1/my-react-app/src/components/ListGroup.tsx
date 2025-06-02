@@ -6,7 +6,7 @@ interface Props {
 }
 
 function ListGroup({ items, heading ,onSelectItem }: Props) {
-  //hook
+ 
   const [selectedIndex, setSelectedIndex] = useState(-1);
 
   return (

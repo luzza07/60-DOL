@@ -1,4 +1,4 @@
-import React from "react";
+
 interface Props {
   children: String;
   color?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark';
