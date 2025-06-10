@@ -8,13 +8,17 @@ interface Todo {
   completed: boolean;
 }
 
-const usePostTodos = () => {
+const usePostTodos =(userId:number|undefined) => {
   const postTodos = () =>
     axios
-      .get<Todo[]>("https://jsonplaceholder.typicode.com/posts")
+      .get<Todo[]>("https://jsonplaceholder.typicode.com/posts",{
+        params:{
+            userId
+        }
+      })
       .then((res) => res.data);
   return useQuery<Todo[], Error>({
-    queryKey: ["todos"],
+    queryKey: userId? ["users",userId,'posts']:['posts'],
     queryFn: postTodos,
     staleTime: 10 * 1000,
   });
