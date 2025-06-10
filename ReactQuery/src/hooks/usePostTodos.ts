@@ -1,4 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
+import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
 interface Todo {
@@ -7,20 +7,27 @@ interface Todo {
   userId: number;
   completed: boolean;
 }
+interface PostQuery {
+  page: number;
+  pageSize: number;
+}
 
-const usePostTodos =(userId:number|undefined) => {
+const usePostTodos = (query: PostQuery) => {
   const postTodos = () =>
     axios
-      .get<Todo[]>("https://jsonplaceholder.typicode.com/posts",{
-        params:{
-            userId
-        }
+      .get<Todo[]>("https://jsonplaceholder.typicode.com/posts", {
+        params: {
+          _start:(query.page-1)* query.pageSize,
+          _limit:query.pageSize
+        },
       })
       .then((res) => res.data);
+      keepPreviousData(true)
   return useQuery<Todo[], Error>({
-    queryKey: userId? ["users",userId,'posts']:['posts'],
+    queryKey: ["posts", query],
     queryFn: postTodos,
     staleTime: 10 * 1000,
+    
   });
 };
 
