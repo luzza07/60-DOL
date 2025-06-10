@@ -1,10 +1,12 @@
 import "./App.css";
-import TodoList from "./TodoList";
+import PostList from "./PostList";
+
 
 function App() {
   return (
     <>
-      <TodoList />
+      {/* <TodoList /> */}
+      <PostList/>
     </>
   );
 }
