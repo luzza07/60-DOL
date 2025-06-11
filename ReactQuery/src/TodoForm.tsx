@@ -19,6 +19,9 @@ const TodoForm = () => {
         savedTodo,
         ...(todos || []),
       ]);
+
+
+     if(ref.current) ref.current.value='';
     },
   });
   const ref = useRef<HTMLInputElement>(null);
@@ -41,7 +44,7 @@ const TodoForm = () => {
           <input ref={ref} type="text" />
         </div>
         <div>
-          <button>Add</button>
+          <button disabled={addTodo.isPending}>{addTodo.isPending ? 'Adding...' : 'Add'}</button>
         </div>
       </form>
     </>
