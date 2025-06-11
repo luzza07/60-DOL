@@ -27,8 +27,8 @@ const TodoForm = () => {
           <input ref={ref} type="text" />
         </div>
         <div>
-          <button disabled={addTodo.isPending}>
-            {addTodo.isPending ? "Adding..." : "Add"}
+          <button>
+            Add
           </button>
         </div>
       </form>
