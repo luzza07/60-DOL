@@ -1,6 +1,7 @@
 
 import './App.css'
-import Counter from './components/Counter'
+import LoginStatus from './components/LoginStatus'
+
 import TaskList from './components/TaskList'
 
 function App() {
@@ -8,7 +9,8 @@ function App() {
 
   return (
     <>
-    <TaskList/>
+    <LoginStatus/>
+    {/* <TaskList/> */}
      {/* <Counter/> */}
     </>
   )
