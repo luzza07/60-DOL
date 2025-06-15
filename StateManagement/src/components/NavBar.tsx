@@ -1,12 +1,11 @@
-import { useContext } from "react";
-import TasksContext from "../tasks/tasksContext";
 import LoginStatus from "../auth/LoginStatus";
+import useCounterStore from "../counter/store";
 
 const NavBar = () => {
-  const { tasks } = useContext(TasksContext);
+  const { counter } = useCounterStore();
   return (
     <nav>
-      <span>{tasks.length}</span>
+      <span>{counter}</span>
       <LoginStatus />
     </nav>
   );
