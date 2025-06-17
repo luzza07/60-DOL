@@ -9,7 +9,6 @@ const HomePage = () => {
       repellat laborum rem sint similique magnam quasi. Pariatur quasi
       doloremque nobis ut.
     </div>
-    <Link to='users'>Users </Link>
     
     </>
   );

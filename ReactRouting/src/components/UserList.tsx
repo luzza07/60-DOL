@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const UserListPage = () => {
+const UserList = () => {
   const users = [
     { id: 1, name: "Luzza" },
     { id: 2, name: "Nicky" },
@@ -19,4 +19,4 @@ const UserListPage = () => {
   );
 };
 
-export default UserListPage;
+export default UserList;
