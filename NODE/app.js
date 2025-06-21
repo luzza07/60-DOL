@@ -1,9 +1,15 @@
-import * as fs from "node:fs/promises";
+import {EventEmitter} from "node:events"
 
-try {
-  const files = await fs.readdir("./");
-  for (const file of files) console.log(file);
-} catch (error) {
-    console.log("error",error);
+const emitter =new EventEmitter();
+
+//register a listener
+
+emitter.on("messageLogged",()=>{
+    console.log("listener called...");
     
-}
+})
+
+//Raise an event
+emitter.emit("messageLogged")
+
+
