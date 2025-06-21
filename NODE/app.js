@@ -1,9 +1,9 @@
-const os =require ("node:os");
+import * as fs from "node:fs/promises";
 
-
-const freeMemory=os.freemem();
-const totalMemory=os.totalmem();
-
-
-console.log(`Total Memory:${totalMemory}`)
-console.log(`Free Memory:${freeMemory}`)
+try {
+  const files = await fs.readdir("./");
+  for (const file of files) console.log(file);
+} catch (error) {
+    console.log("error",error);
+    
+}
