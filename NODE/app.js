@@ -1,10 +1,16 @@
-import { EventEmitter } from "node:events";
-import Logger from "./logger.js";
-const logger = new Logger();
-//Register a listener
-logger.on("messageLogged", (e) => {
-  console.log("listener called...", e);
+import * as http from "node:http";
+
+const server = http.createServer((req,res)=>{
+  if(req.url==="/"){
+    res.write("hello world");
+    res.end()
+  }
+  if(req.url==="/api/courses"){
+    res.write(JSON.stringify([1,2,3]))
+    res.end();
+  }
 });
 
+server.listen(3000);
 
-logger.myLog("message");
+console.log("listening on port 3000....");

@@ -1,9 +1,6 @@
 import { EventEmitter } from "node:events";
 
-
-
 const url = "http://pseudologger.io/log";
-
 class Logger extends EventEmitter{
   myLog(message) {
     //Send an http request
