@@ -1,8 +1,17 @@
+import { EventEmitter } from "node:events";
+
+
+
 const url = "http://pseudologger.io/log";
 
-const myLog = (message) => {
-  console.log(message);
-};
+class Logger extends EventEmitter{
+  myLog(message) {
+    //Send an http request
+    console.log(message);
 
-module.exports.log = myLog;
+    //Raise an event
+    this.emit("messageLogged", { id: 1, url: "url" });
+  }
+}
 
+export default Logger;
