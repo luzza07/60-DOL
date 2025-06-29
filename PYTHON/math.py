@@ -1,5 +1,4 @@
-my_income=100
-tax_rate=0.1
-my_taxes=my_income*tax_rate
+mystring="abcdefghijkl"
 
-print(my_taxes)
+
+print(mystring[3:6:])
