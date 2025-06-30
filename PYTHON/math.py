@@ -1,4 +1,3 @@
-mystring="abcdefghijkl"
+mystring="nicky is beautiful"
 
-
-print(mystring[3:6:])
+print (mystring.split('i'))
